@@ -36,13 +36,12 @@ command :run do |c|
     guesses = global_options[:authors].split(",")
 
     puts "Who is #{parody}? Comparing #{guesses.size} accounts"
-    puts "="*80
+    puts "="*60
     corpus = [guesses + [parody]].flatten.inject({}) do |list, user|
        list[user] = tfid_doc_by_user(user)
        list
     end
     model = TfIdfSimilarity::TfIdfModel.new(corpus.values)
-    puts "building a similarity matrix from term-freq docs"
     matrix = model.similarity_matrix
 
     results = guesses.inject({}) do |list, user|
@@ -50,6 +49,8 @@ command :run do |c|
       list[user] = sim
       list
     end
+    puts "="*60
+    puts "Based on TF-IDF Text Analysis, we think #{parody} is:"
     results.sort_by{|_,v| -1*v}.each {|k,v| puts " [%.2f%%] %s" % [v*100,k]}
   end
 end
