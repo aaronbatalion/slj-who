@@ -13,13 +13,14 @@ the author of your favorite parody twitter account.
 ## And @techcrunch later [here](http://techcrunch.com/2015/01/11/maybe-its-arrington/):
 ![techcrunch post](https://s3.amazonaws.com/f.cl.ly/items/3x3S121q1A1i273G0y1X/Screen%20Shot%202015-01-16%20at%2012.44.19%20PM.jpg)
 
+## But I wanted to tweak it...
 I applied a similiar approach using [TF*IDF](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 and also cleaned the data a bit before classification.
-Changes results a bit...
+Changes results a bit.
 
 # Installation
 
-You'll need twitter api credentials.
+## You'll need twitter api credentials.
 Go to [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new)
 Create an application.
      ![create app](https://s3.amazonaws.com/f.cl.ly/items/302d3a2h0T343Y0F2H0h/Screen%20Shot%202015-01-16%20at%201.06.19%20PM.jpg)
@@ -27,7 +28,7 @@ Create an application.
 Under "Keys and Access Tokens", grab your Consumer Secret & Consumer Key.
      ![secret and key](https://s3.amazonaws.com/f.cl.ly/items/2Y2I3q1K0P2i3G2x2j2j/keys.jpg.jpg)
 
-
+## Install the Code
     gem install bundler
     git clone https://github.com/aaronbatalion/slj-who
     cd slj-who && bundle install
