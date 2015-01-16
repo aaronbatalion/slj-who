@@ -32,13 +32,11 @@ end
 
 command :run do |c|
   c.action do |global_options,options,args|
-    puts global_options[:parody]
-    puts global_options[:authors]
-
     parody = global_options[:parody].strip
     guesses = global_options[:authors].split(",")
 
     puts "Who is #{parody}? Comparing #{guesses.size} accounts"
+    puts "="*80
     corpus = [guesses + [parody]].flatten.inject({}) do |list, user|
        list[user] = tfid_doc_by_user(user)
        list
@@ -70,40 +68,21 @@ end
 
 def recent_tweets(user)
   # Note: It might not equal exactly $number_of_tweets b/c of replies/rts..close enough
-  puts "[#{user}] fetching #{$number_of_tweets} tweets"
+  print "[#{user}] fetching #{$number_of_tweets} tweets: "
   results = collect_first_x do |max_id|
     options = {:count => 200, :include_rts => false, :exclude_replies => true, :trim_user => true}
     options[:max_id] = max_id unless max_id.nil?
     print "."
-    fetch_tweets_for(user,options)
+    $twitter.user_timeline(user, options)
   end
   puts ""
   results
-end
-
-def fetch_tweets_for(user,options)
-  $twitter.user_timeline(user, options)
 end
 
 # remove URLs, handles, and /cc, /rt, new lines, duplicate spaces, etc.
 def clean_tweets(results)
   results.first($number_of_tweets).map(&:text).join.gsub(URLS,"").gsub(HANDLES_AND_ADV_TWITTER,"").squeeze(" ")
 end
-
-#"https://github.com/djberg96/memoize"
-# Simple disk basked caching of twitter API and more.
-def memoize(name, file=nil)
-   cache = File.open(file, 'rb'){ |io| Marshal.load(io) } rescue {}
-   (class<<self; self; end).send(:define_method, name) do |*args|
-      unless cache.has_key?(args)
-         cache[args] = super(*args)
-         File.open(file, 'wb'){ |f| Marshal.dump(cache, f) } if file
-      end
-      cache[args]
-   end
-   cache
-end
-memoize(:fetch_tweets_for, "cache/tweet_objs3.cache")
 
 def tfid_doc_by_user(user)
   terms = clean_tweets(recent_tweets(user))
