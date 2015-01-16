@@ -25,7 +25,7 @@ Create an application.
      ![create app](https://s3.amazonaws.com/f.cl.ly/items/302d3a2h0T343Y0F2H0h/Screen%20Shot%202015-01-16%20at%201.06.19%20PM.jpg)
 
 Under "Keys and Access Tokens", grab your Consumer Secret & Consumer Key.
-     ![secret and key](http://cl.ly/image/1m222w1J081N/Screen%20Shot%202015-01-16%20at%201.06.37%20PM.jpg)
+     ![secret and key](https://s3.amazonaws.com/f.cl.ly/items/2Y2I3q1K0P2i3G2x2j2j/keys.jpg.jpg)
 
 
     gem install bundler
