@@ -33,10 +33,14 @@ Under "Keys and Access Tokens", grab your Consumer Secret & Consumer Key.
     git clone https://github.com/aaronbatalion/slj-who
     cd slj-who && bundle install
 
+    # setup with your twitter key/secret
+    /slj-who.rb config --key=THIS-IS-YOUR-KEY --secret=THIS-IS-YOUR-SECRET
+
 
 # Examples
 
-    ./slj-who.rb --key=THIS-IS-YOUR-KEY --secret=THIS-IS-YOUR-SECRET --authors=dcurtis,abatalion,levie --parody=startupljackson run
+    # dont forget to set your key/secret
+    ./slj-who.rb run --authors=dcurtis,abatalion,levie --parody=startupljackson
 
 
 Produces output like:

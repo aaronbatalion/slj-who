@@ -3,6 +3,7 @@ require 'gli'
 require 'twitter'
 require 'matrix'
 require 'tf-idf-similarity'
+require 'yaml'
 include GLI::App
 program_desc 'Who the fsck is @StartupLJackson?'
 
@@ -11,29 +12,35 @@ URLS = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[
 # regex for handles, /cc, /ht, new lines, etc.
 HANDLES_AND_ADV_TWITTER = /(@([A-Za-z0-9_]{1,15})|\/cc|\/ht|\/mt|\n)/i
 
-
-
-flag [:key]
-flag [:secret]
-flag [:parody], :default_value => "startupljackson"
-flag [:authors], :default_value => "dcurtis,aaronbatalion,levie"
-
 pre do |global_options,command,options,args|
-  if global_options[:key].nil? || global_options[:secret].nil?
-  exit_now!('Create a Twitter application here: https://apps.twitter.com/. Use consumer key and consumer token')
-end
-  twitter_options = {
-    :consumer_key => global_options[:key],
-    :consumer_secret => global_options[:secret],
-  }
-  $twitter ||= Twitter::REST::Client.new twitter_options
+  config = YAML.load_file(".twitter.yml") rescue {}
+  secret, key = options[:secret] || config[:secret], options[:key] || config[:key]
+  if secret.nil? || key.nil?
+    exit_now!('Create a Twitter application here: https://apps.twitter.com/. Use consumer key and consumer token with:
+./slj-who config --key MY-KEY --secret MY-SECRET')
+  end
+  $twitter ||= Twitter::REST::Client.new :consumer_key => key, :consumer_secret => secret
   $number_of_tweets = 400
 end
 
-command :run do |c|
+command :config do |c|
+  c.desc 'Set the key/secret from apps.twitter.com'
+  c.flag [:key], :type => String
+  c.flag [:secret], :type => String
   c.action do |global_options,options,args|
-    parody = global_options[:parody].strip
-    guesses = global_options[:authors].split(",")
+    key = options[:key]
+    secret = options[:secret]
+    File.open(".twitter.yml","w") {|f| f << {:key => key, :secret => secret}.to_yaml}
+  end
+end
+
+command :run do |c|
+  c.desc ""
+  c.flag [:parody], :default_value => "startupljackson"
+  c.flag [:authors], :default_value => "dcurtis,aaronbatalion,levie"
+  c.action do |global_options,options,args|
+    parody = options[:parody].strip
+    guesses = options[:authors].split(",")
 
     puts "Who is #{parody}? Comparing #{guesses.size} accounts"
     puts "="*60
