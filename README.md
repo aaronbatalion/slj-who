@@ -5,22 +5,29 @@
 the author of your favorite parody twitter account.
 
 In Jan 2014, I said this:
-https://twitter.com/abatalion/status/424094146173730816
+![abatalion tweet](https://s3.amazonaws.com/f.cl.ly/items/0h3h1M3m0l0C2u1f3F3Z/Screen%20Shot%202015-01-16%20at%2012.42.56%20PM.jpg)
 
 Then @endtwist in Jan 2015 actually did the work:
-https://twitter.com/endtwist/status/554358608985866240
+![@endtwist tweet](https://s3.amazonaws.com/f.cl.ly/items/0O430L1F2X2o3i2X3H3r/Screen%20Shot%202015-01-16%20at%2012.43.08%20PM.jpg)
 
-and @techcrunch later here:
-http://techcrunch.com/2015/01/11/maybe-its-arrington/
+and @techcrunch later [here](http://techcrunch.com/2015/01/11/maybe-its-arrington/):
+![techcrunch post](https://s3.amazonaws.com/f.cl.ly/items/3x3S121q1A1i273G0y1X/Screen%20Shot%202015-01-16%20at%2012.44.19%20PM.jpg)
 
-I applied a similiar approach but accounted for edge cases in data, which changes the results..
+I applied a similiar approach using [TF*IDF](http://en.wikipedia.org/wiki/Tf%E2%80%93idf)
+and also cleaned the data a bit before classification.
+Changes results a bit...
 
 # Installation
 
-You'll need twitter api credentials. Annoying, I know.
-Go here: https://apps.twitter.com/
-Create an application.
-Under "Keys and Access Tokens", grab your Consumer Secret & Consumer Key.
+You'll need twitter api credentials.
+    Go here: https://apps.twitter.com/
+    Create an application.
+    Under "Keys and Access Tokens", grab your Consumer Secret & Consumer Key.
+
+    gem install bundler
+    git clone https://github.com/aaronbatalion/slj-who
+    cd slj-who && bundle install
+
 
 # Examples
 
