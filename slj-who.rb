@@ -16,7 +16,7 @@ HANDLES_AND_ADV_TWITTER = /(@([A-Za-z0-9_]{1,15})|\/cc|\/ht|\/mt|\n)/i
 flag [:key]
 flag [:secret]
 flag [:parody], :default_value => "startupljackson"
-flag [:authors], :default_value => "hunterwalk,levie,dcurtis"
+flag [:authors], :default_value => "dcurtis,aaronbatalion,levie"
 
 pre do |global_options,command,options,args|
   if global_options[:key].nil? || global_options[:secret].nil?
