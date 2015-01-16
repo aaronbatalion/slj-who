@@ -4,10 +4,10 @@
 *SLJ-Who* is a silly command line tool to guess who is more likely to be
 the author of your favorite parody twitter account.
 
-## In Jan 2014, I said this:
+## In Jan 2014, I said [this](https://twitter.com/abatalion/status/424094146173730816):
 ![abatalion tweet](https://s3.amazonaws.com/f.cl.ly/items/0h3h1M3m0l0C2u1f3F3Z/Screen%20Shot%202015-01-16%20at%2012.42.56%20PM.jpg)
 
-## Then @endtwist in Jan 2015 actually did the work:
+## Then @endtwist in Jan 2015 actually did [the work](https://twitter.com/endtwist/status/554358608985866240):
 ![@endtwist tweet](https://s3.amazonaws.com/f.cl.ly/items/0O430L1F2X2o3i2X3H3r/Screen%20Shot%202015-01-16%20at%2012.43.08%20PM.jpg)
 
 ## And @techcrunch later [here](http://techcrunch.com/2015/01/11/maybe-its-arrington/):
