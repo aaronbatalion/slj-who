@@ -20,9 +20,13 @@ Changes results a bit...
 # Installation
 
 You'll need twitter api credentials.
-    Go here: https://apps.twitter.com/
-    Create an application.
-    Under "Keys and Access Tokens", grab your Consumer Secret & Consumer Key.
+Go to [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new)
+Create an application.
+     ![create app](https://s3.amazonaws.com/f.cl.ly/items/302d3a2h0T343Y0F2H0h/Screen%20Shot%202015-01-16%20at%201.06.19%20PM.jpg)
+
+Under "Keys and Access Tokens", grab your Consumer Secret & Consumer Key.
+     ![secret and key](http://cl.ly/image/1m222w1J081N/Screen%20Shot%202015-01-16%20at%201.06.37%20PM.jpg)
+
 
     gem install bundler
     git clone https://github.com/aaronbatalion/slj-who
@@ -50,3 +54,6 @@ Produces output like:
      [48.60%] levie
      [47.04%] abatalion
      [45.65%] dcurtis
+
+# TODO
+  lots... feel free to fork.
