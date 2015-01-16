@@ -13,7 +13,7 @@ https://twitter.com/endtwist/status/554358608985866240
 and @techcrunch later here:
 http://techcrunch.com/2015/01/11/maybe-its-arrington/
 
-I applied a similiar approach but accounted for edge cases of RTs, Replies, etc.
+I applied a similiar approach but accounted for edge cases in data, which changes the results..
 
 # Installation
 

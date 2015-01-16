@@ -27,7 +27,7 @@ end
     :consumer_secret => global_options[:secret],
   }
   $twitter ||= Twitter::REST::Client.new twitter_options
-  $number_of_tweets = 1000
+  $number_of_tweets = 400
 end
 
 command :run do |c|
